@@ -27,7 +27,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN chmod 755 /start.sh
 
-#EXPOSE 6379
-EXPOSE 7000
+EXPOSE 6379
 
 CMD ["/bin/bash", "/start.sh"]
