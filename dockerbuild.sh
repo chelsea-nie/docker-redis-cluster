@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t redis6379 .
+docker build -t supervisor_redis .
