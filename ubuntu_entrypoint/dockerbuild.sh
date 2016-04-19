@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t redis_ubuntu .
+docker build -t ubuntu_redis .

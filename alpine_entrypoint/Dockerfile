@@ -22,11 +22,12 @@ RUN addgroup -S redis && adduser -S -G redis redis
 
 #RUN apk add --no-cache --virtual .redisworld redis && apk del .redisworld
 RUN apk add --no-cache redis
-#RUN apk update && apk add --virtual .redisworld redis && apk del .redisworld
 
 
 
 
+## redis.conf
+## the redis in apk holds the redis.conf at /etc/redis.conf
 #ADD redis.conf /etc/redis.conf
 
 

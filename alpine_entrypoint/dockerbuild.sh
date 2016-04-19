@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t redis_alpine .
+docker build -t alpine_redis .
