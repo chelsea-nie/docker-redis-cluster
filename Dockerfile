@@ -8,7 +8,8 @@ MAINTAINER Crossz (twitter.com/zhengxin)
 RUN groupadd redis && useradd -g redis redis
 
 # Initial update and install of dependency that can add apt-repos
-RUN apt-get -y update && apt-get install -y git gcc make supervisor
+#RUN apt-get -y update && apt-get install -y git gcc make supervisor
+RUN apt-get -y update && apt-get install -y git gcc make supervisor && apt-get clean
 
 # checkout the 3.0.6 tag (Will change to 3.2 tag when it is released as stable)
 RUN git clone -b 3.0.7 https://github.com/antirez/redis.git

@@ -1,4 +1,4 @@
-# This tag use ubuntu 14.04
+# From ubuntu
 FROM alpine:3.3
 
 MAINTAINER Crossz (twitter.com/zhengxin)
@@ -27,14 +27,7 @@ RUN apk add --no-cache redis
 
 
 ## redis.conf
-## the redis in apk holds the redis.conf at /etc/redis.conf, but have to be assigned, otherwise redis-server will take default settings, which is not in any files.
-#ADD redis.conf /etc/redis.conf
-
-
-
-
-
-
+ADD redis.conf /etc/redis.conf
 
 
 
@@ -46,5 +39,5 @@ WORKDIR /data
 ADD docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 6379
-CMD [ "redis-server" ]
+EXPOSE 7004
+CMD [ "redis-server", "/etc/redis.conf" ]
