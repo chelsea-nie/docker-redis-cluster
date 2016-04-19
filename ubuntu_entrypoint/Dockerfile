@@ -11,7 +11,8 @@ RUN groupadd redis && useradd -g redis redis
 ## -- installation --
 
 # Initial update and install of dependency that can add apt-repos
-RUN apt-get -y update && apt-get install -y git gcc make && apt-get clean && apt-get autoclean
+RUN apt-get -y update && apt-get install -y git gcc make 
+#&& apt-get clean && apt-get autoclean
 
 # checkout the 3.0.6 tag (Will change to 3.2 tag when it is released as stable)
 RUN git clone -b 3.0.7 https://github.com/antirez/redis.git
@@ -29,7 +30,7 @@ RUN (cd /redis && make && make install)
 
 ## redis.conf
 ## the redis git version holds the redis.conf at /redis/redis.conf
-#ADD redis.conf /etc/redis.conf
+ADD redis.conf /redis/redis.conf
 
 
 
@@ -44,4 +45,4 @@ ADD docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 6379
-CMD [ "redis-server" ]
+CMD [ "redis-server","/redis/redis.conf" ]

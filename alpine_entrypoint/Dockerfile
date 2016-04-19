@@ -28,7 +28,7 @@ RUN apk add --no-cache redis
 
 ## redis.conf
 ## the redis in apk holds the redis.conf at /etc/redis.conf, but have to be assigned, otherwise redis-server will take default settings, which is not in any files.
-#ADD redis.conf /etc/redis.conf
+ADD redis.conf /etc/redis.conf
 
 
 
@@ -47,4 +47,4 @@ ADD docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 6379
-CMD [ "redis-server" ]
+CMD [ "redis-server","/etc/redis.conf" ]
