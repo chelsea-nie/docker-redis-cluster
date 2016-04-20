@@ -1,5 +1,4 @@
-
-w to use:
+Howto use:
 
 ~~~
 docker run --net=host -d redis6379
